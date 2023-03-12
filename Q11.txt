@@ -1,0 +1,39 @@
+
+Write the Queries to implement
+a) Equi Join
+b) Non-Equi Join
+c) Self Join
+d) Full Outer Join
+
+
+
+a)Suppose we have two tables, "employees" and "departments", and we want to join them on the "department_id" column. The query for an equi join would be:
+
+SELECT e.employee_name, d.department_name
+FROM employees e
+JOIN departments d
+ON e.department_id = d.department_id;
+
+
+b)Suppose we have two tables, "orders" and "customers", and we want to join them on the "order_total" column where the order total is greater than the customer's credit limit. The query for a non-equi join would be:
+
+SELECT o.order_id, o.order_total, c.customer_name
+FROM orders o
+JOIN customers c
+ON o.order_total > c.credit_limit;
+
+c)Suppose we have a table "employees" with columns "employee_id", "employee_name", and "manager_id". We want to join the table to itself to find the names of employees and their managers. The query for a self join would be:
+
+SELECT e.employee_name, m.employee_name AS manager_name
+FROM employees e
+JOIN employees m
+ON e.manager_id = m.employee_id;
+
+
+d)Suppose we have two tables, "customers" and "orders", and we want to join them to show all customers and all orders, even if there are no orders for a particular customer. The query for a full outer join would be:
+
+
+SELECT c.customer_name, o.order_id
+FROM customers c
+FULL OUTER JOIN orders o
+ON c.customer_id = o.customer_id;
